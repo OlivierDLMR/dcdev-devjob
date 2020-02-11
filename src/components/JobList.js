@@ -18,7 +18,7 @@ class JobList extends Component {
 
         fetch('https://127.0.0.1:8000/api/jobs/'+j.id)
             .then(response => response.json())
-            .then(data => this.setState({jobSelect: data}));
+            .then(data => this.setState({jobSelect: data, jobSkill: data.skills.map((skill, key) =><li key={key}><SkillLi skill={skill}/></li>)}));
 
 
     }.bind(this)
@@ -37,7 +37,7 @@ class JobList extends Component {
                <div className="jobList-container">
                    {this.state.jobSelect.title}
                     {this.state.jobSelect.company}
-
+                   <ul>{this.state.jobSkill}</ul>
                     {this.state.jobSelect.description}
                </div>
            </div>

@@ -18,18 +18,18 @@ class JobCard extends Component {
 
         console.log(this.props)
         const {job} = this.props;
-        const skillsLi = job.skills.map((skill, key) =><li key={key}><SkillLi skill={skill}/></li>);
+        const skillsLi = job.skills.map((skill, key) =><li className="btn btn-danger" key={key}><SkillLi skill={skill}/></li>);
 
 
 
 
         return (
-           <article>
+            <article>
                 <img src="" alt=""/>
                 <div>
                     <h3>{job.title}</h3>
-                    <p>{job.company}</p>
-                    <ul>
+                    <div className="btn btn-success">{job.company}</div>
+                    <ul className="row p-3">
                         {skillsLi}
                     </ul>
                     <p>Offre ajoutée  {moment(job.createdAt).fromNow()}</p>
@@ -37,8 +37,8 @@ class JobCard extends Component {
                     <BtnAddToJob
                         addToJob={j => { this.props.addToJob(j)}}
                         job={job}
-                    >
-xxxxxxx
+                    >Voir l'offre
+
                     </BtnAddToJob>
 
 

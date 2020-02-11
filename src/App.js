@@ -25,13 +25,13 @@ class App extends Component {
   render() {
     return (
         <div>
-            <nav >
-                <ul className="header-container">
-                    <li><NavLink to="/">Accueil</NavLink></li>
-                    <li><NavLink to="/offres-emploi">Offres d'emploi</NavLink></li>
-                    <li><NavLink to="/ajouter-offre">Ajouter une offre</NavLink></li>
+            <nav>
+                <ul className="nav nav-tabs" >
+                    <li className="nav-item m-2"><NavLink to="/">Accueil</NavLink></li>
+                    <li className="nav-item m-2"><NavLink to="/offres-emploi">Offres d'emploi</NavLink></li>
+                    <li className="nav-item m-2"><NavLink to="/ajouter-offre">Ajouter une offre</NavLink></li>
                 </ul> {/* NavLink créer un lien vers l'url to*/}
-            </nav> {/* Route associe un chemin avec un composant apres le */}
+            </nav> {/* Route associe un chemin avec un composant apres le /  */}
 
             <Route path="/offres-emploi">
                 <JobView jobs={this.state.jobs}  /> {/*JobView = le composant à afficher quand on est sur la route /offres emploi<*/}
