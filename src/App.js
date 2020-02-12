@@ -4,12 +4,17 @@ import {NavLink} from "react-router-dom";
 import JobView from "./components/JobView";
 import JobAdd from "./components/JobAdd";
 
+
 class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {jobs: [], loading: true};
+        this.state = {
+            jobs: [],
+            skills:[],
+            loading: true};
         this.state.test = "a";
+
     }
 
 
@@ -18,6 +23,11 @@ class App extends Component {
         fetch('https://127.0.0.1:8000/api/jobs/')
             .then(response => response.json())
             .then(data => this.setState({jobs: data["hydra:member"], loading: false})
+            )
+
+        fetch('https://127.0.0.1:8000/api/skills/')
+            .then(response => response.json())
+            .then(data => this.setState({skills: data["hydra:member"], loading: false})
             )
     }
 
@@ -37,8 +47,9 @@ class App extends Component {
                 <JobView jobs={this.state.jobs}  /> {/*JobView = le composant à afficher quand on est sur la route /offres emploi<*/}
             </Route>
             <Route path="/ajouter-offre">
-                <JobAdd jobs={this.state.jobs}/>
+                <JobAdd skills={this.state.skills}/>
             </Route>
+
 
         </div>
 

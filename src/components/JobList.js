@@ -29,15 +29,15 @@ class JobList extends Component {
 
         return (
            <div className="container">
-               <div className="jobCard-container">
-                   <ul>
+               <div>
+                   <ul className="row p-3">
                     {jobLi}
                    </ul>
                </div>
-               <div className="jobList-container">
+               <div className="col-md-4">
                    {this.state.jobSelect.title}
                     {this.state.jobSelect.company}
-                   <ul>{this.state.jobSkill}</ul>
+                   <ul className="btn btn-danger m-3">{this.state.jobSkill}</ul>
                     {this.state.jobSelect.description}
                </div>
            </div>
